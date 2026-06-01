@@ -80,8 +80,8 @@
         L.control.zoom({ position: 'bottomright' }).addTo(map);
 
         // 1. Pilihan Peta Dasar A (Diganti ke OpenStreetMap Gratis)
-        var petaSmooth = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-        attribution: '© OpenStreetMap contributors'
+       var petaSmooth = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '© OpenStreetMap contributors'
         });
 
         // 2. Pilihan Peta Dasar B
@@ -102,7 +102,7 @@
 // FUNGSI POP-UP
         function gayaPopUp(feature, layer) {
             if (feature.properties) {
-                var namaFoto = feature.properties.Foto ? `../assets/images/${feature.properties.Foto}` : 'https://images.unsplash.com/photo-1541339907198-e08756dedf3f?q=80&w=600&auto=format&fit=crop';
+                var namaFoto = feature.properties.Foto ? `assets/images/${feature.properties.Foto}` : 'https://images.unsplash.com/photo-1541339907198-e08756dedf3f?q=80&w=600&auto=format&fit=crop';
 
                 var isiHtml = `
                     <div class="w-60 font-sans text-white overflow-hidden rounded-xl flex flex-col items-center text-center">
@@ -145,7 +145,7 @@
             }
         }
 
-        fetch('../data/SMAN_Klaten.geojson')
+        fetch('data/SMAN_Klaten.geojson')
             .then(res => res.json())
             .then(data => {
                 L.geoJSON(data, {
